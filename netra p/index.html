@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netra | Portfolio</title>
+
+<style>
+:root {
+    --cream: #fff8ef;
+    --coral: #f36f55;
+    --dark: #302631;
+    --muted: #71666a;
+    --card: #ffffff;
+    --border: #f1d7c7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    transition: 0.3s;
+}
+
+body.dark {
+    --cream: #211d25;
+    --dark: #fff3ed;
+    --muted: #d4c4c8;
+    --card: #302934;
+    --border: #59404a;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--coral);
+}
+
+.logo span {
+    color: var(--dark);
+    font-size: 16px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    font-size: 14px;
+    padding: 7px 0;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--coral);
+    border-bottom: 2px solid var(--coral);
+}
+
+button {
+    cursor: pointer;
+    font: inherit;
+}
+
+.icon-btn {
+    width: 39px;
+    height: 39px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--dark);
+}
+
+.menu-btn { display: none; }
+
+.hero {
+    max-width: 1200px;
+    min-height: 78vh;
+    margin: auto;
+    padding: 55px 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.eyebrow {
+    color: var(--coral);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.15;
+    margin: 15px 0;
+}
+
+h1 span { color: var(--coral); }
+
+.role {
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.intro {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 470px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 20px;
+    margin: 5px 5px 5px 0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.primary {
+    background: var(--coral);
+    color: white;
+}
+
+.secondary {
+    border: 1px solid var(--coral);
+    color: var(--coral);
+}
+
+/* CSS animated developer illustration */
+.illustration {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #ffe0cc;
+    border-radius: 45% 55% 60% 40%;
+    animation: blob 6s infinite ease-in-out;
+}
+
+.developer {
+    width: 250px;
+    height: 300px;
+    position: relative;
+    animation: float 3s infinite ease-in-out;
+}
+
+.hair {
+    position: absolute;
+    top: 25px;
+    left: 82px;
+    width: 95px;
+    height: 110px;
+    background: #493039;
+    border-radius: 50% 50% 35% 35%;
+}
+
+.face {
+    position: absolute;
+    top: 48px;
+    left: 94px;
+    width: 72px;
+    height: 85px;
+    background: #f3bb98;
+    border-radius: 45%;
+}
+
+.bangs {
+    position: absolute;
+    top: 35px;
+    left: 88px;
+    width: 85px;
+    height: 40px;
+    background: #493039;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.eye {
+    position: absolute;
+    top: 88px;
+    width: 6px;
+    height: 7px;
+    background: #493039;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.eye.left { left: 113px; }
+.eye.right { left: 145px; }
+
+.smile {
+    position: absolute;
+    top: 105px;
+    left: 123px;
+    width: 18px;
+    height: 8px;
+    border-bottom: 2px solid #a64d46;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.shirt {
+    position: absolute;
+    top: 130px;
+    left: 62px;
+    width: 130px;
+    height: 95px;
+    background: #f47a62;
+    border-radius: 45% 45% 10% 10%;
+}
+
+.laptop {
+    position: absolute;
+    top: 190px;
+    left: 43px;
+    width: 165px;
+    height: 95px;
+    background: #55434e;
+    border: 7px solid #806b76;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.laptop::after {
+    content: "</>";
+    color: #ffb5a2;
+    font-size: 27px;
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.laptop-base {
+    position: absolute;
+    top: 284px;
+    left: 30px;
+    width: 190px;
+    height: 10px;
+    background: #b6a1a9;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+.float-icon {
+    position: absolute;
+    background: white;
+    color: var(--coral);
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    box-shadow: 0 8px 25px #9a685022;
+    font-weight: bold;
+    font-size: 19px;
+    animation: float 3s infinite ease-in-out;
+}
+
+.code { top: 45px; left: 5%; }
+.python { top: 75px; right: 5%; animation-delay: 0.7s; }
+.js { bottom: 35px; left: 8%; animation-delay: 1s; }
+
+.star {
+    position: absolute;
+    color: var(--coral);
+    font-size: 27px;
+    animation: sparkle 2s infinite;
+}
+
+.star.one { top: 25px; right: 22%; }
+.star.two { bottom: 50px; right: 10%; }
+
+.welcome {
+    max-width: 1050px;
+    margin: 0 auto 60px;
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.welcome p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-top: 10px;
+}
+
+footer {
+    padding: 22px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@keyframes float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -12px; }
+}
+
+@keyframes blob {
+    50% { border-radius: 55% 45% 40% 60%; }
+}
+
+@keyframes sparkle {
+    50% { opacity: 0.4; scale: 1.2; }
+}
+
+@media (max-width: 800px) {
+    header { flex-wrap: wrap; }
+    .menu-btn { display: inline-block; }
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        order: 3;
+        gap: 0;
+    }
+    nav.open { display: flex; }
+    nav a {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+    }
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .illustration { grid-row: 1; min-height: 330px; }
+    .intro { margin-left: auto; margin-right: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="index.html">NS <span>Netra</span></a>
+
+    <nav id="navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="achievements.html">Skills & Achievements</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div>
+        <button class="icon-btn" id="themeToggle"
+                aria-label="Toggle dark theme">☼</button>
+        <button class="icon-btn menu-btn" id="menuToggle"
+                aria-label="Open navigation"
+                aria-expanded="false">☰</button>
+    </div>
+</header>
+
+<main>
+<section class="hero">
+    <div>
+        <p class="eyebrow">Hello, welcome to my portfolio</p>
+
+        <h1>I'm Netra <span>Senthilkumar</span></h1>
+
+        <p class="role">Aspiring Software Developer</p>
+
+        <p class="intro">
+            Curious mind. Creative code. Meaningful impact.
+            I'm an IT student who enjoys learning new technologies,
+            exploring creative ideas, and building useful digital projects.
+        </p>
+
+        <a class="btn primary" href="projects.html">
+            View My Projects →
+        </a>
+
+        <a class="btn secondary" href="contact.html">
+            Contact Me
+        </a>
+    </div>
+
+    <div class="illustration"
+         role="img"
+         aria-label="Animated illustration of a developer coding on a laptop">
+        <div class="blob"></div>
+
+        <div class="float-icon code">&lt;/&gt;</div>
+        <div class="float-icon python">Py</div>
+        <div class="float-icon js">JS</div>
+
+        <div class="star one">✦</div>
+        <div class="star two">✧</div>
+
+        <div class="developer">
+            <div class="hair"></div>
+            <div class="face"></div>
+            <div class="bangs"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+            <div class="shirt"></div>
+            <div class="laptop"></div>
+            <div class="laptop-base"></div>
+        </div>
+    </div>
+</section>
+
+<section class="welcome">
+    <p class="eyebrow">A little about me</p>
+    <h2>Learning by building</h2>
+    <p>
+        I'm pursuing B.Sc. Information Technology and developing
+        my programming, web development, teamwork, and
+        creative problem-solving skills.
+    </p>
+    <br>
+    <a class="btn secondary" href="about.html">More About Me →</a>
+    <a class="btn secondary" href="achievements.html">
+        Explore My Skills →
+    </a>
+</section>
+</main>
+
+<footer>
+    © <span id="year"></span> Netra. Keep learning, keep creating.
+</footer>
+
+<script>
+const navigation = document.getElementById("navigation");
+const menuToggle = document.getElementById("menuToggle");
+
+menuToggle.addEventListener("click", function () {
+    navigation.classList.toggle("open");
+
+    const opened = navigation.classList.contains("open");
+
+    menuToggle.setAttribute("aria-expanded", opened);
+    menuToggle.textContent = opened ? "×" : "☰";
+});
+
+document.getElementById("themeToggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+
+    this.textContent =
+        document.body.classList.contains("dark") ? "☾" : "☼";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

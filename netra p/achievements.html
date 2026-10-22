@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills & Achievements | Netra</title>
+
+<style>
+:root {
+    --cream: #fff8ef; --coral: #f36f55; --dark: #302631;
+    --muted: #71666a; --card: #fff; --border: #f1d7c7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: var(--cream); color: var(--dark); line-height: 1.7; }
+body.dark {
+    --cream: #211d25; --dark: #fff3ed;
+    --muted: #d4c4c8; --card: #302934; --border: #59404a;
+}
+a { color: inherit; text-decoration: none; }
+header {
+    max-width: 1200px; margin: auto; padding: 22px 6%;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 18px; flex-wrap: wrap;
+}
+.logo { color: var(--coral); font-size: 25px; font-weight: bold; }
+.logo span { color: var(--dark); font-size: 16px; }
+nav { display: flex; gap: 18px; }
+nav a { font-size: 13px; }
+nav a:hover, nav a.active { color: var(--coral); }
+button { cursor: pointer; font: inherit; }
+.icon-btn {
+    width: 38px; height: 38px; border: 1px solid var(--border);
+    background: var(--card); color: var(--dark); border-radius: 10px;
+}
+.menu-btn { display: none; }
+main { max-width: 1100px; margin: auto; padding: 45px 6% 80px; }
+.eyebrow { color: var(--coral); font-size: 13px; font-weight: bold; }
+h1 { font-size: clamp(34px, 5vw, 50px); margin: 10px 0; }
+h2 { margin-bottom: 18px; }
+.lead { color: var(--muted); margin-bottom: 30px; }
+.card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px; padding: 25px; margin-bottom: 22px;
+}
+.skills { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill {
+    background: #fff0e4; color: #713b32;
+    border: 1px solid #f1d7c7; padding: 8px 13px;
+    border-radius: 999px; font-size: 14px;
+    transition: transform .2s;
+}
+.skill:hover { transform: translateY(-3px); }
+ul { padding-left: 22px; color: var(--muted); }
+li { margin: 10px 0; }
+footer {
+    padding: 22px; text-align: center; color: var(--muted);
+    border-top: 1px solid var(--border); font-size: 13px;
+}
+@media(max-width:750px) {
+    .menu-btn { display: inline-block; }
+    nav { display: none; flex-direction: column; width: 100%; order: 3; }
+    nav.open { display: flex; }
+    nav a { padding: 8px 0; }
+}
+</style>
+</head>
+
+<body>
+<header>
+    <a class="logo" href="index.html">NS <span>Netra</span></a>
+    <nav id="navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="achievements.html">Skills & Achievements</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark theme">☼</button>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open navigation">☰</button>
+    </div>
+</header>
+
+<main>
+    <p class="eyebrow">What I can do and what I'm learning</p>
+    <h1>Skills & Achievements</h1>
+    <p class="lead">My technical skills, personal strengths, and learning milestones.</p>
+
+    <section class="card">
+        <h2>💻 Technical Skills</h2>
+        <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Python</span>
+            <span class="skill">Java</span>
+            <span class="skill">C++</span>
+            <span class="skill">C</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">SQLite</span>
+            <span class="skill">VS Code</span>
+            <span class="skill">Frontend Development</span>
+            <span class="skill">Backend Development</span>
+            <span class="skill">Full Stack Development</span>
+            <span class="skill">AI Integration</span>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>🌟 Personal & Professional Skills</h2>
+        <div class="skills">
+            <span class="skill">Leadership</span>
+            <span class="skill">Communication</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Problem-Solving</span>
+            <span class="skill">Creativity</span>
+            <span class="skill">Critical Thinking</span>
+            <span class="skill">Adaptability</span>
+            <span class="skill">Taking Initiative</span>
+            <span class="skill">Decision-Making</span>
+            <span class="skill">Presentation Skills</span>
+            <span class="skill">Idea Generation</span>
+            <span class="skill">Project Management</span>
+            <span class="skill">Project Planning</span>
+            <span class="skill">Creative Thinking</span>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>🏆 Achievements & Experience</h2>
+        <ul>
+            <li>
+                Selected in my college's inter-department Smart India
+                Hackathon process.
+            </li>
+            <li>
+                Working on the Nexora project concept focused on
+                education financial support.
+            </li>
+            <li>
+                Exploring project ideas involving web development,
+                AI integration, and automation.
+            </li>
+            <li>
+                Developing programming and teamwork skills through
+                practical project work.
+            </li>
+        </ul>
+        <p style="color:var(--muted);margin-top:18px;font-size:13px">
+            Project status and accomplishments are described honestly.
+            Ongoing ideas are not presented as completed products.
+        </p>
+    </section>
+</main>
+
+<footer>© <span id="year"></span> Netra. Keep learning, keep creating.</footer>
+
+<script>
+const nav = document.getElementById("navigation");
+document.getElementById("menuToggle").addEventListener("click", function () {
+    nav.classList.toggle("open");
+});
+document.getElementById("themeToggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+    this.textContent = document.body.classList.contains("dark") ? "☾" : "☼";
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

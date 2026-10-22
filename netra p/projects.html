@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Projects | Netra</title>
+
+<style>
+:root {
+    --cream: #fff8ef; --coral: #f36f55; --dark: #302631;
+    --muted: #71666a; --card: #fff; --border: #f1d7c7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: var(--cream); color: var(--dark); line-height: 1.7; }
+body.dark {
+    --cream: #211d25; --dark: #fff3ed;
+    --muted: #d4c4c8; --card: #302934; --border: #59404a;
+}
+a { color: inherit; text-decoration: none; }
+header {
+    max-width: 1200px; margin: auto; padding: 22px 6%;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 18px; flex-wrap: wrap;
+}
+.logo { color: var(--coral); font-size: 25px; font-weight: bold; }
+.logo span { color: var(--dark); font-size: 16px; }
+nav { display: flex; gap: 18px; }
+nav a { font-size: 13px; }
+nav a:hover, nav a.active { color: var(--coral); }
+button { cursor: pointer; font: inherit; }
+.icon-btn {
+    width: 38px; height: 38px; border: 1px solid var(--border);
+    background: var(--card); color: var(--dark); border-radius: 10px;
+}
+.menu-btn { display: none; }
+main { max-width: 1100px; margin: auto; padding: 45px 6% 80px; }
+.eyebrow { color: var(--coral); font-size: 13px; font-weight: bold; }
+h1 { font-size: clamp(34px, 5vw, 50px); margin: 10px 0; }
+h2 { margin-bottom: 12px; }
+h3 { font-size: 20px; }
+.lead { color: var(--muted); margin-bottom: 30px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px; overflow: hidden;
+}
+.project-top { padding: 23px; }
+.project-icon {
+    width: 52px; height: 52px; border-radius: 15px;
+    background: #fff0e4; display: grid; place-items: center;
+    font-size: 26px; margin-bottom: 14px;
+}
+.project-heading {
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 10px; margin-bottom: 10px;
+}
+.status {
+    background: #fff0e4; color: #9b4636;
+    border-radius: 20px; padding: 4px 10px;
+    font-size: 11px; font-weight: bold; white-space: nowrap;
+}
+p { color: var(--muted); }
+.pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.pill {
+    background: #fff0e4; color: #713b32;
+    border-radius: 20px; padding: 5px 10px; font-size: 12px;
+}
+.details-toggle {
+    margin-top: 18px; padding: 8px 0;
+    background: transparent; border: none;
+    color: var(--coral); font-weight: bold;
+}
+.details-toggle:hover { text-decoration: underline; }
+.details {
+    display: none;
+    padding: 0 23px 23px;
+    border-top: 1px solid var(--border);
+}
+.details.open { display: block; animation: appear .25s ease; }
+.details h4 { margin-top: 15px; margin-bottom: 5px; }
+footer {
+    padding: 22px; text-align: center; color: var(--muted);
+    border-top: 1px solid var(--border); font-size: 13px;
+}
+button:focus-visible, a:focus-visible {
+    outline: 3px solid var(--coral); outline-offset: 3px;
+}
+@keyframes appear {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media(max-width:800px) {
+    .grid { grid-template-columns: 1fr; }
+    .menu-btn { display: inline-block; }
+    nav { display: none; flex-direction: column; width: 100%; order: 3; }
+    nav.open { display: flex; }
+    nav a { padding: 8px 0; }
+}
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after { animation:none!important; }
+}
+</style>
+</head>
+
+<body>
+<header>
+    <a class="logo" href="index.html">NS <span>Netra</span></a>
+    <nav id="navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="achievements.html">Skills & Achievements</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark theme">☼</button>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open navigation">☰</button>
+    </div>
+</header>
+
+<main>
+    <p class="eyebrow">Ideas, code, and solutions</p>
+    <h1>My Projects</h1>
+    <p class="lead">
+        Explore my project work and concepts. Select View Details
+        to learn more without leaving this page.
+    </p>
+
+    <div class="grid">
+
+        <!-- PROJECT 1 -->
+        <article class="card">
+            <div class="project-top">
+                <div class="project-icon">🎓</div>
+                <div class="project-heading">
+                    <h3>Nexora</h3>
+                    <span class="status">In Progress</span>
+                </div>
+                <p>
+                    An education financial support platform concept
+                    designed to connect students who need help with
+                    supporters through a verification-focused workflow.
+                </p>
+                <div class="pills">
+                    <span class="pill">Python</span>
+                    <span class="pill">Flask</span>
+                    <span class="pill">SQLite</span>
+                    <span class="pill">HTML</span>
+                    <span class="pill">CSS</span>
+                    <span class="pill">JavaScript</span>
+                </div>
+                <button class="details-toggle" aria-expanded="false"
+                        aria-controls="nexoraDetails" data-target="nexoraDetails">
+                    View Details +
+                </button>
+            </div>
+            <div class="details" id="nexoraDetails">
+                <h4>Project Overview</h4>
+                <p>
+                    Nexora aims to help students facing financial
+                    barriers continue their education through a
+                    structured support and verification process.
+                </p>
+                <h4>Planned Workflow</h4>
+                <p>
+                    Student registration, document and fee verification,
+                    approval stages, and transparent tracking of support.
+                </p>
+                <h4>My Learning</h4>
+                <p>
+                    Flask routes, database planning, web interfaces,
+                    and designing a verification-focused workflow.
+                </p>
+                <h4>Status</h4>
+                <p>This project is in progress; not every proposed feature is complete.</p>
+            </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="card">
+            <div class="project-top">
+                <div class="project-icon">🎮</div>
+                <div class="project-heading">
+                    <h3>Gaming Universe</h3>
+                    <span class="status">Concept</span>
+                </div>
+                <p>
+                    A shared online world concept with customizable
+                    characters, social connections, mini-games,
+                    levels, and global rankings.
+                </p>
+                <div class="pills">
+                    <span class="pill">Game Design</span>
+                    <span class="pill">Creative Thinking</span>
+                    <span class="pill">Planning</span>
+                </div>
+                <button class="details-toggle" aria-expanded="false"
+                        aria-controls="gamingDetails" data-target="gamingDetails">
+                    View Details +
+                </button>
+            </div>
+            <div class="details" id="gamingDetails">
+                <h4>Project Overview</h4>
+                <p>
+                    The vision is a social virtual world where players
+                    explore different areas and discover games through
+                    boards placed throughout the world.
+                </p>
+                <h4>Planned Features</h4>
+                <p>
+                    Character customization, friends, shared homes,
+                    virtual pets, mini-games, player levels, and
+                    worldwide rankings.
+                </p>
+                <h4>Status</h4>
+                <p>This is currently a concept, not a completed online game.</p>
+            </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="card">
+            <div class="project-top">
+                <div class="project-icon">🧠</div>
+                <div class="project-heading">
+                    <h3>Business Memory Agent</h3>
+                    <span class="status">Prototype</span>
+                </div>
+                <p>
+                    An AI-oriented project concept that helps a small
+                    business use past sales, feedback, incidents,
+                    and decisions to support future recommendations.
+                </p>
+                <div class="pills">
+                    <span class="pill">Python</span>
+                    <span class="pill">Hindsight</span>
+                    <span class="pill">Groq</span>
+                </div>
+                <button class="details-toggle" aria-expanded="false"
+                        aria-controls="businessDetails" data-target="businessDetails">
+                    View Details +
+                </button>
+            </div>
+            <div class="details" id="businessDetails">
+                <h4>Project Overview</h4>
+                <p>
+                    The idea is to help a shop recall relevant business
+                    history when making decisions, rather than treating
+                    every question as completely new.
+                </p>
+                <h4>Example Use</h4>
+                <p>
+                    A shop owner could review previous inventory issues,
+                    customer feedback, and sales patterns before
+                    planning the next step.
+                </p>
+                <h4>Status</h4>
+                <p>A prototype concept; the scope depends on implemented features.</p>
+            </div>
+        </article>
+
+        <!-- PROJECT 4 -->
+        <article class="card">
+            <div class="project-top">
+                <div class="project-icon">💗</div>
+                <div class="project-heading">
+                    <h3>Medora</h3>
+                    <span class="status">Planned</span>
+                </div>
+                <p>
+                    A healthcare assistance concept for hospital-verified
+                    emergency medical financial support and status updates.
+                </p>
+                <div class="pills">
+                    <span class="pill">Planning</span>
+                    <span class="pill">Problem-Solving</span>
+                    <span class="pill">Web Concepts</span>
+                </div>
+                <button class="details-toggle" aria-expanded="false"
+                        aria-controls="medoraDetails" data-target="medoraDetails">
+                    View Details +
+                </button>
+            </div>
+            <div class="details" id="medoraDetails">
+                <h4>Project Overview</h4>
+                <p>
+                    Medora aims to make it easier to organize medical
+                    assistance requests while including a hospital
+                    verification step.
+                </p>
+                <h4>Planned Features</h4>
+                <p>
+                    Hospital verification, request status updates,
+                    and clear information about the support process.
+                </p>
+                <h4>Status</h4>
+                <p>This is a planned concept, not a finished service.</p>
+            </div>
+        </article>
+
+    </div>
+</main>
+
+<footer>
+    © <span id="year"></span> Netra. Keep learning, keep creating.
+</footer>
+
+<script>
+const nav = document.getElementById("navigation");
+
+document.getElementById("menuToggle").addEventListener("click", function () {
+    nav.classList.toggle("open");
+});
+
+document.getElementById("themeToggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+    this.textContent = document.body.classList.contains("dark") ? "☾" : "☼";
+});
+
+// Expand and collapse project details on this page.
+document.querySelectorAll(".details-toggle").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const details = document.getElementById(this.dataset.target);
+        const opening = !details.classList.contains("open");
+
+        details.classList.toggle("open", opening);
+        this.setAttribute("aria-expanded", opening);
+        this.textContent = opening ? "Hide Details −" : "View Details +";
+    });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
