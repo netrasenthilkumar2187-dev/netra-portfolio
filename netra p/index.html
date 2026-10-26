@@ -2,496 +2,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Netra | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Netra's personal portfolio showcasing her skills, education, and interests in technology.">
+  <title>Netra | Personal Portfolio</title>
 
-<style>
-:root {
-    --cream: #fff8ef;
-    --coral: #f36f55;
-    --dark: #302631;
-    --muted: #71666a;
-    --card: #ffffff;
-    --border: #f1d7c7;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-    font-family: Arial, sans-serif;
-    background: var(--cream);
-    color: var(--dark);
-    transition: 0.3s;
-}
-
-body.dark {
-    --cream: #211d25;
-    --dark: #fff3ed;
-    --muted: #d4c4c8;
-    --card: #302934;
-    --border: #59404a;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-header {
-    max-width: 1200px;
-    margin: auto;
-    padding: 22px 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: var(--coral);
-}
-
-.logo span {
-    color: var(--dark);
-    font-size: 16px;
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    font-size: 14px;
-    padding: 7px 0;
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--coral);
-    border-bottom: 2px solid var(--coral);
-}
-
-button {
-    cursor: pointer;
-    font: inherit;
-}
-
-.icon-btn {
-    width: 39px;
-    height: 39px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--card);
-    color: var(--dark);
-}
-
-.menu-btn { display: none; }
-
-.hero {
-    max-width: 1200px;
-    min-height: 78vh;
-    margin: auto;
-    padding: 55px 6%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 30px;
-}
-
-.eyebrow {
-    color: var(--coral);
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-h1 {
-    font-size: clamp(40px, 5vw, 65px);
-    line-height: 1.15;
-    margin: 15px 0;
-}
-
-h1 span { color: var(--coral); }
-
-.role {
-    font-size: 23px;
-    margin-bottom: 18px;
-}
-
-.intro {
-    color: var(--muted);
-    line-height: 1.9;
-    max-width: 470px;
-    margin-bottom: 25px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 20px;
-    margin: 5px 5px 5px 0;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn:hover { transform: translateY(-3px); }
-
-.primary {
-    background: var(--coral);
-    color: white;
-}
-
-.secondary {
-    border: 1px solid var(--coral);
-    color: var(--coral);
-}
-
-/* CSS animated developer illustration */
-.illustration {
-    min-height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.blob {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: #ffe0cc;
-    border-radius: 45% 55% 60% 40%;
-    animation: blob 6s infinite ease-in-out;
-}
-
-.developer {
-    width: 250px;
-    height: 300px;
-    position: relative;
-    animation: float 3s infinite ease-in-out;
-}
-
-.hair {
-    position: absolute;
-    top: 25px;
-    left: 82px;
-    width: 95px;
-    height: 110px;
-    background: #493039;
-    border-radius: 50% 50% 35% 35%;
-}
-
-.face {
-    position: absolute;
-    top: 48px;
-    left: 94px;
-    width: 72px;
-    height: 85px;
-    background: #f3bb98;
-    border-radius: 45%;
-}
-
-.bangs {
-    position: absolute;
-    top: 35px;
-    left: 88px;
-    width: 85px;
-    height: 40px;
-    background: #493039;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.eye {
-    position: absolute;
-    top: 88px;
-    width: 6px;
-    height: 7px;
-    background: #493039;
-    border-radius: 50%;
-    z-index: 3;
-}
-
-.eye.left { left: 113px; }
-.eye.right { left: 145px; }
-
-.smile {
-    position: absolute;
-    top: 105px;
-    left: 123px;
-    width: 18px;
-    height: 8px;
-    border-bottom: 2px solid #a64d46;
-    border-radius: 50%;
-    z-index: 3;
-}
-
-.shirt {
-    position: absolute;
-    top: 130px;
-    left: 62px;
-    width: 130px;
-    height: 95px;
-    background: #f47a62;
-    border-radius: 45% 45% 10% 10%;
-}
-
-.laptop {
-    position: absolute;
-    top: 190px;
-    left: 43px;
-    width: 165px;
-    height: 95px;
-    background: #55434e;
-    border: 7px solid #806b76;
-    border-radius: 10px;
-    z-index: 4;
-}
-
-.laptop::after {
-    content: "</>";
-    color: #ffb5a2;
-    font-size: 27px;
-    font-weight: bold;
-    display: grid;
-    place-items: center;
-    height: 100%;
-}
-
-.laptop-base {
-    position: absolute;
-    top: 284px;
-    left: 30px;
-    width: 190px;
-    height: 10px;
-    background: #b6a1a9;
-    border-radius: 4px;
-    z-index: 5;
-}
-
-.float-icon {
-    position: absolute;
-    background: white;
-    color: var(--coral);
-    width: 53px;
-    height: 53px;
-    display: grid;
-    place-items: center;
-    border-radius: 13px;
-    box-shadow: 0 8px 25px #9a685022;
-    font-weight: bold;
-    font-size: 19px;
-    animation: float 3s infinite ease-in-out;
-}
-
-.code { top: 45px; left: 5%; }
-.python { top: 75px; right: 5%; animation-delay: 0.7s; }
-.js { bottom: 35px; left: 8%; animation-delay: 1s; }
-
-.star {
-    position: absolute;
-    color: var(--coral);
-    font-size: 27px;
-    animation: sparkle 2s infinite;
-}
-
-.star.one { top: 25px; right: 22%; }
-.star.two { bottom: 50px; right: 10%; }
-
-.welcome {
-    max-width: 1050px;
-    margin: 0 auto 60px;
-    padding: 30px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-}
-
-.welcome p {
-    color: var(--muted);
-    line-height: 1.8;
-    margin-top: 10px;
-}
-
-footer {
-    padding: 22px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 13px;
-}
-
-@keyframes float {
-    0%, 100% { translate: 0 0; }
-    50% { translate: 0 -12px; }
-}
-
-@keyframes blob {
-    50% { border-radius: 55% 45% 40% 60%; }
-}
-
-@keyframes sparkle {
-    50% { opacity: 0.4; scale: 1.2; }
-}
-
-@media (max-width: 800px) {
-    header { flex-wrap: wrap; }
-    .menu-btn { display: inline-block; }
-    nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        order: 3;
-        gap: 0;
+  <style>
+    :root {
+      --background: #fffaf3;
+      --card: #ffffff;
+      --text: #292522;
+      --muted: #756b64;
+      --accent: #e87862;
+      --accent-dark: #c95743;
+      --border: #f0e2d8;
+      --nav: rgba(255, 250, 243, 0.96);
     }
-    nav.open { display: flex; }
-    nav a {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border);
+
+    body.dark {
+      --background: #201e1d;
+      --card: #2d2927;
+      --text: #fff5ee;
+      --muted: #c8b9af;
+      --accent: #ff947c;
+      --accent-dark: #ffb09d;
+      --border: #49403b;
+      --nav: rgba(32, 30, 29, 0.96);
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 7%;
+      background: var(--nav);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      color: var(--accent-dark);
+      font-size: 24px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-dark);
+    }
+
+    .theme-button {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
     .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
+      max-width: 1200px;
+      min-height: 78vh;
+      margin: auto;
+      padding: 65px 7%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 55px;
     }
-    .illustration { grid-row: 1; min-height: 330px; }
-    .intro { margin-left: auto; margin-right: auto; }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation: none !important;
-        scroll-behavior: auto !important;
+    .small-label {
+      display: inline-block;
+      padding: 7px 15px;
+      margin-bottom: 22px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: var(--card);
+      color: var(--accent-dark);
+      font-size: 12px;
+      letter-spacing: 1px;
     }
-}
-</style>
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5vw, 66px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      margin-bottom: 12px;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .intro {
+      max-width: 570px;
+      margin-bottom: 28px;
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 21px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .secondary {
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .social-link {
+      margin-right: 18px;
+      color: var(--accent-dark);
+      font-size: 14px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .photo-area {
+      width: 100%;
+      max-width: 370px;
+      justify-self: center;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 48% 48% 18px 18px;
+      background: var(--card);
+      box-shadow: 0 20px 50px rgba(70, 45, 30, 0.08);
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 45% 45% 12px 12px;
+    }
+
+    .photo-fallback {
+      display: none;
+      width: 100%;
+      min-height: 390px;
+      padding: 25px;
+      place-items: center;
+      border-radius: 45% 45% 12px 12px;
+      background: #f9e6dc;
+      color: #7d4b3d;
+      text-align: center;
+    }
+
+    .photo-fallback strong {
+      display: block;
+      font-size: 30px;
+    }
+
+    .photo-fallback p {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 25px 15px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .navbar {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        gap: 13px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-top: 45px;
+        text-align: center;
+      }
+
+      .hero-content {
+        order: 2;
+      }
+
+      .photo-area {
+        order: 1;
+        max-width: 310px;
+      }
+
+      .profile-photo,
+      .photo-fallback {
+        height: 330px;
+        min-height: 330px;
+      }
+
+      .intro {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-right: 5%;
+        padding-left: 5%;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <nav class="navbar">
+    <a class="logo" href="index.html">Netra.</a>
 
-<header>
-    <a class="logo" href="index.html">NS <span>Netra</span></a>
-
-    <nav id="navigation">
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="achievements.html">Skills & Achievements</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <div>
-        <button class="icon-btn" id="themeToggle"
-                aria-label="Toggle dark theme">☼</button>
-        <button class="icon-btn menu-btn" id="menuToggle"
-                aria-label="Open navigation"
-                aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="achievements.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
     </div>
-</header>
 
-<main>
-<section class="hero">
-    <div>
-        <p class="eyebrow">Hello, welcome to my portfolio</p>
+    <button
+      class="theme-button"
+      id="themeToggle"
+      type="button"
+      aria-label="Toggle dark mode"
+    >🌙 Dark</button>
+  </nav>
 
-        <h1>I'm Netra <span>Senthilkumar</span></h1>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="small-label">WELCOME TO MY PORTFOLIO</span>
 
-        <p class="role">Aspiring Software Developer</p>
+        <h1>Hi, I'm <span>Netra</span>!</h1>
 
-        <p class="intro">
-            Curious mind. Creative code. Meaningful impact.
-            I'm an IT student who enjoys learning new technologies,
-            exploring creative ideas, and building useful digital projects.
+        <p class="tagline">
+          Curious mind. Creative code. Meaningful impact.
         </p>
 
-        <a class="btn primary" href="projects.html">
+        <p class="intro">
+          I'm an IT student who enjoys programming, building useful
+          applications, and exploring how technology can solve
+          real-world problems. I'm developing my skills in Java,
+          web development, and problem-solving, one project at a time.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="projects.html">
             View My Projects →
-        </a>
+          </a>
 
-        <a class="btn secondary" href="contact.html">
-            Contact Me
-        </a>
-    </div>
-
-    <div class="illustration"
-         role="img"
-         aria-label="Animated illustration of a developer coding on a laptop">
-        <div class="blob"></div>
-
-        <div class="float-icon code">&lt;/&gt;</div>
-        <div class="float-icon python">Py</div>
-        <div class="float-icon js">JS</div>
-
-        <div class="star one">✦</div>
-        <div class="star two">✧</div>
-
-        <div class="developer">
-            <div class="hair"></div>
-            <div class="face"></div>
-            <div class="bangs"></div>
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-            <div class="smile"></div>
-            <div class="shirt"></div>
-            <div class="laptop"></div>
-            <div class="laptop-base"></div>
+          <a class="button secondary" href="about.html">
+            More About Me
+          </a>
         </div>
-    </div>
-</section>
 
-<section class="welcome">
-    <p class="eyebrow">A little about me</p>
-    <h2>Learning by building</h2>
-    <p>
-        I'm pursuing B.Sc. Information Technology and developing
-        my programming, web development, teamwork, and
-        creative problem-solving skills.
-    </p>
-    <br>
-    <a class="btn secondary" href="about.html">More About Me →</a>
-    <a class="btn secondary" href="achievements.html">
-        Explore My Skills →
-    </a>
-</section>
-</main>
+        <div class="social-links">
+          <a
+            class="social-link"
+            href="https://github.com/netrasenthilkumar2187-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub ↗</a>
 
-<footer>
-    © <span id="year"></span> Netra. Keep learning, keep creating.
-</footer>
+          <a
+            class="social-link"
+            href="https://www.linkedin.com/in/netra-senthilkumar-2a8778394/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn ↗</a>
+        </div>
+      </div>
 
-<script>
-const navigation = document.getElementById("navigation");
-const menuToggle = document.getElementById("menuToggle");
+      <div class="photo-area">
+        <img
+          class="profile-photo"
+          src="./image/netra.jpeg"
+          alt="Netra's profile photo"
+          onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='grid';"
+        >
 
-menuToggle.addEventListener("click", function () {
-    navigation.classList.toggle("open");
+        <div class="photo-fallback" id="photoFallback">
+          <div>
+            <strong>Netra</strong>
+            <p>
+              Photo not found.<br>
+              Check that image/netra.jpeg exists beside index.html.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    const opened = navigation.classList.contains("open");
+  <footer>
+    <p>Made with curiosity and creativity by Netra ✨</p>
+    <p>© <span id="year"></span> Netra. All rights reserved.</p>
+  </footer>
 
-    menuToggle.setAttribute("aria-expanded", opened);
-    menuToggle.textContent = opened ? "×" : "☰";
-});
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
 
-document.getElementById("themeToggle").addEventListener("click", function () {
-    document.body.classList.toggle("dark");
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains("dark");
+      themeToggle.textContent = isDark ? "☀️ Light" : "🌙 Dark";
+    }
 
-    this.textContent =
-        document.body.classList.contains("dark") ? "☾" : "☼";
-});
+    try {
+      if (localStorage.getItem("portfolio-theme") === "dark") {
+        document.body.classList.add("dark");
+      }
+    } catch (error) {
+      // The page still works if browser storage is unavailable.
+    }
 
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    updateThemeButton();
 
+    themeToggle.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      try {
+        const theme = document.body.classList.contains("dark")
+          ? "dark"
+          : "light";
+
+        localStorage.setItem("portfolio-theme", theme);
+      } catch (error) {
+        // Theme switching still works on this page.
+      }
+
+      updateThemeButton();
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
